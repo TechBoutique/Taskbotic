@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { TaskBoticService } from "../services/taskbotic";
+import { TaskBoticService } from "../services/taskbotic.service";
 
 const taskboticService = new TaskBoticService();
 
