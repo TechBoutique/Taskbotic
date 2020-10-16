@@ -12,3 +12,8 @@ export async function getParticipantsBatchMapping(req: Request, res: Response) {
 export async function sendWelcomeMail(req: Request, res: Response) {
     return emailService.sendWelcomeMail(req, res);
 } 
+
+
+export async function getSpreadsheetData(req: Request, res: Response) {
+    return taskboticService.getSpreadsheetData(req, res);
+}
