@@ -10,10 +10,10 @@ export class TaskBoticService {
         try {
             let db: any = req.headers.db;
             const conn = await connect(db);
-            let url:any =`select * from participants_batch_map`
-            const participants = await conn.query(url);
+            let selectQuery:any =`select * from participants_batch_map`
+            const participants = await conn.query(selectQuery);
             res.status(200).json(
-                participants
+                participants[0]
             );
             return conn.end();
         }
@@ -23,5 +23,4 @@ export class TaskBoticService {
             })
         }
     }
-
 }

@@ -1,10 +1,10 @@
 import { createPool } from "mysql2/promise";
 
-export async function connect(clientId: string) {
+export async function connect(db: string) {
     const connection = createPool({
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
-        database: clientId,
+        database: db,
         password: process.env.DB_PASSWORD,
         multipleStatements: true,
         connectionLimit: 500,
