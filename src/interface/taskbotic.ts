@@ -3,4 +3,6 @@ export interface ParticipantBatchMap {
     email?: string;
     name?: string;
     batch?: string;
+    created_at?: Date;
+    updated_at?: Date;
 }

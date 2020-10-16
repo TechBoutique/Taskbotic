@@ -6,3 +6,7 @@ const taskboticService = new TaskBoticService();
 export async function getParticipantsBatchMapping(req: Request, res: Response) {
     return taskboticService.getParticipantsBatchMapping(req, res);
 }
+
+export async function getSpreadsheetData(req: Request, res: Response) {
+    return taskboticService.getSpreadsheetData(req, res);
+}
