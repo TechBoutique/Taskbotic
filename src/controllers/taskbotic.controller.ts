@@ -1,12 +1,14 @@
 import { Request, Response } from "express";
-import { TaskBoticService } from "../services/taskbotic.service"; 
-import { EmailService } from "../services/email.service"
+import {DatabaseService} from "../services/database.service";
+import { EmailService } from "../services/email.service" 
+import { SpreadsheetService } from "../services/spreadsheet.service"
 
-const taskboticService = new TaskBoticService();
-const emailService = new EmailService(); 
+const databaseService = new DatabaseService();
+const emailService = new EmailService();  
+const spreadsheetService = new SpreadsheetService();
 
 export async function getParticipantsBatchMapping(req: Request, res: Response) {
-    return taskboticService.getParticipantsBatchMapping(req, res);
+    return databaseService.getParticipantsBatchMapping(req, res);
 } 
 
 export async function sendWelcomeMail(req: Request, res: Response) {
@@ -15,5 +17,5 @@ export async function sendWelcomeMail(req: Request, res: Response) {
 
 
 export async function getSpreadsheetData(req: Request, res: Response) {
-    return taskboticService.getSpreadsheetData(req, res);
+    return spreadsheetService.getSpreadsheetData(req, res);
 }
