@@ -1,6 +1,5 @@
 import { Request, Response } from "express";  
 import { GoogleSpreadsheet } from "google-spreadsheet"
-import { creds } from "../resources/credentials/credentials";
 const otpGenerator = require('otp-generator') as any; 
 
 let doc = new GoogleSpreadsheet(
@@ -10,10 +9,15 @@ let doc = new GoogleSpreadsheet(
 export class SpreadsheetService{ 
     constructor(){} 
     async getSpreadsheetData(req: Request, res: Response) {
-        try{
+        try{ 
+          let cred_email = process.env.client_email;   
+          let cred_private_key = process.env.private_key; 
+          cred_email = <string>cred_email;
+          cred_private_key = <string>cred_private_key; 
+          console.log(cred_private_key)
             await doc.useServiceAccountAuth({
-                client_email: creds.client_email,
-                private_key: creds.private_key,
+                client_email: cred_email,
+                private_key: cred_private_key
               });
               await doc.loadInfo(); // loads document properties and worksheets
               console.log(doc.title);
