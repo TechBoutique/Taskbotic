@@ -14,7 +14,7 @@ const accessLogStream = fs.createWriteStream(
 
 // Routes
 
-import TaskboticRoute from "./routes/taskbotic.routes";
+import TaskboticRoute from "./routes/root.routes";
 
 export class App {
   private app: Application;
